@@ -1,0 +1,4 @@
+OS:windows10
+CPU:Intel Core i5-2520M
+メモリ:4.00GB
+ハードディスク容量:148GB
