@@ -1,0 +1,49 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package blackjackpackage;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author guest1Day
+ */
+
+//ユーザークラス
+ public class User extends Human{
+
+    protected ArrayList<Integer> myCards=new ArrayList<>();
+    
+    //手札の合計メソッド
+    @Override
+     public int open(){
+         int sum = 0;
+    for(int i=0; i < myCards.size(); i++) {
+       sum +=myCards.get(i);
+    } //手札の要素の数の分だけ合計するループ処理
+       return sum;
+}
+    //手札に追加メソッド
+     @Override
+ public void setCard(ArrayList<Integer> c){
+     for(int i=0; i<c.size(); i++){
+         int draw=c.get(i);
+         myCards.add(draw);
+     }//引いたカードの数だけ追加するループ処理
+     
+ }
+    //カードを引くべきかメソッド
+    @Override
+ public boolean checkSum(){
+     if(open() <= 11){    //引いたカードの合計が11以下ならカードを引く処理
+         return true;
+     }else{
+         return false;
+     }
+ }
+ 
+    
+}

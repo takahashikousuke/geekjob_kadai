@@ -1,0 +1,82 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package blackjackpackage;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+/**
+ *
+ * @author guest1Day
+ */
+public class Dealer extends Human {
+   
+    protected ArrayList<Integer> cards=new ArrayList<>();
+    protected ArrayList<Integer> myCards=new ArrayList<>();
+    
+    //山札をセットするコンストラクタ
+    public Dealer(){
+        
+        for(int i=1; i<5; i++){
+            
+            for(int r=1; r<14; r++){
+                cards.add(r);
+            }
+        }
+    }
+    
+    //山札シャッフルして2枚引き、引いた2枚を削除するメソッド
+    public ArrayList<Integer> deal(){
+        ArrayList<Integer> hand=new ArrayList<>();
+      
+        Collections.shuffle(cards);
+        hand.add(cards.get(0));
+        hand.add(cards.get(1));
+        cards.remove(0);
+        cards.remove(1);
+        return hand;
+}     
+        
+        
+    //カードを1枚引くメソッド
+    public ArrayList<Integer> hit(){
+        ArrayList<Integer> hand=new ArrayList<>();
+        hand.add(cards.get(0));
+        cards.remove(0);
+        return hand;
+    }
+      
+    //手札を合計するメソッド
+  @Override
+     public int open(){
+         int sum = 0;
+    for(int i=0; i < myCards.size(); i++) {
+       sum +=myCards.get(i);
+    }
+       return sum;
+}
+    //手札に追加メソッド
+     @Override
+ public void setCard(ArrayList<Integer> c){
+     for(int i=0; i<c.size(); i++){
+         int draw=c.get(i);
+         myCards.add(draw);
+         
+     }
+     
+ }
+    //カードを引くべきかメソッド
+    @Override
+ public boolean checkSum(){
+     if(open() <= 17){
+         return true;
+     }else{
+         return false;
+     }
+ }
+
+}
+ 

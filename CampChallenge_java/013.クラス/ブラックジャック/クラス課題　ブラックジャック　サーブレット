@@ -1,0 +1,124 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package blackjackpackage;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+/**
+ *
+ * @author guest1Day
+ */
+public class blackjackServlet extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            //インスタンス生成
+            User k = new User();
+            Dealer d = new Dealer();
+            
+            //手札を2枚引く
+            k.setCard(d.deal()); 
+            d.setCard(d.deal());
+            
+            out.print("最初のDealerの手札は"+d.myCards+"<BR>");
+            out.print("最初のUserの手札の手札は"+k.myCards+"<BR>");
+            
+            //1枚引くか考える
+            while(k.open() <= 11){
+            if(k.checkSum() == true){
+            k.setCard(d.hit());
+            }
+            }            
+            
+            while(d.open() <= 17){
+            if(d.checkSum() == true){
+            d.setCard(d.hit());
+            }
+            }
+            out.print("hit後のDealerの手札は"+d.myCards+"<BR>");
+            out.print("hit後のUserの手札の手札は"+k.myCards+"<BR>");
+            
+            out.print("Dealerの合計は"+d.open()+"<BR>");
+            out.print("Userの合計は"+k.open()+"<BR>");
+            
+            if(d.open()>=22 && k.open()<=21){
+                out.print("Dealerがbustしました。Userの勝利！"+"<br>");
+            }
+            if(k.open()>=22 && d.open()<=21){
+                out.print("Userがbustしました。Dealerの勝利！"+"<br>");
+            }
+            if(k.open()>=22 && d.open()>=22){
+                out.print("両者がbustしました。引き分けです。"+"<br>");
+            }
+            if(k.open()>d.open() && k.open()<=21 && d.open()<=21){
+                out.print("Userの勝利！"+"<br>");
+            }else if(k.open()<d.open() && k.open()<=21 && d.open()<=21){
+                out.print("Dealerの勝利！"+"<br>");
+            }else if(k.open()==d.open() && k.open()<=21 && d.open()<=21){
+                out.print("引き分けです。"+"<br>");
+            }
+            
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
