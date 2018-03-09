@@ -1,0 +1,22 @@
+<%-- 
+    Document   : Html2
+    Created on : 2018/03/06, 11:48:33
+    Author     : guest1Day
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <%
+            request.setCharacterEncoding("UTF-8");
+          out.print("名前 "+request.getParameter("Name"));
+          out.print("年齢 "+request.getParameter("Age"));
+          out.print("趣味 "+request.getParameter("Hobby"));
+        %>
+    </body>
+</html>
