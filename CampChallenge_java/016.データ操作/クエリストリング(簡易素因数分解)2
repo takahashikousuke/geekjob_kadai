@@ -1,0 +1,62 @@
+<%-- 
+    Document   : Bunkai
+    Created on : 2018/03/09, 14:40:13
+    Author     : guest1Day
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <%
+            request.setCharacterEncoding("UTF-8");
+            String num = request.getParameter("num");
+            int Num = Integer.parseInt(num);
+            
+            out.print(Num+"=");
+            
+            while(Num % 2 == 0 && Num >= 0){
+                 Num = Num/2;
+                out.print("2");
+                
+                if(Num >= 2){
+                    out.print("*");
+                }
+                    
+            }
+            while(Num % 3 == 0 && Num >= 0){
+                 Num = Num/3;
+                out.print("3");
+                
+                if(Num >= 3){
+                    out.print("*");
+                }
+            }
+            while(Num % 5 == 0 && Num >= 0){
+                 Num = Num/5;
+                out.print("5");
+                
+                if(Num >= 5){
+                    out.print("*");
+                }
+            }
+            while(Num % 7 == 0 && Num >= 0){
+                 Num = Num/7;
+                out.print("7");
+                
+                if(Num >= 7){
+                    out.print("*");
+                }
+            }
+            
+            if(Num != 1){
+            out.print("あまり"+Num);
+            }
+            
+        %>
+    </body>
+</html>
