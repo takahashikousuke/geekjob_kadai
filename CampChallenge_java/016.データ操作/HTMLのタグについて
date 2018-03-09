@@ -1,0 +1,86 @@
+<%-- 
+    Document   : Html3
+    Created on : 2018/03/09, 10:22:55
+    Author     : guest1Day
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>ビートルズ大好き <br></h1>
+        <img src ="http://103tommy.com/wp-content/uploads/2017/07/15-things-you-didnt-know-about-revolver-beatles-7b1c9fc2-7173-486b-b519-2b86e9c58bb9.jpg"
+              width ="50%" height="50%">
+        <p>
+            ビートルズ最高<br>
+            一番好き<br>
+        
+        <h3>ビートルズ1stアルバム　A面概要</h3>
+        
+        <table border ="2">
+            <tr>
+              <th>No.</th>
+              <th>タイトル</th>
+              <th>作詞作曲</th>
+              <th>備考</th>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>I Saw Her Standing There</td>
+                <td>McCartney-Lenon</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Misery</td>
+                <td>McCartney-Lenon</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Anna</td>
+                <td>Alexander</td>
+                <td>アーサー・アレキサンダーのカバー</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chains</td>
+                <td>Goffin-King</td>
+                <td>クッキーズのカバー</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Boys</td>
+                <td>Dixon-Farrell</td>
+                <td>シュレルズのカバー</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Ask Me Why</td>
+                <td>McCartney-Lenon</td>
+                <td>2ndシングルB面</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Please Please Me</td>
+                <td>McCartney-Lenon</td>
+                <td>2ndシングル</td>
+            </tr>
+           </table> 
+            
+        <a href="https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%BC%E3%83%88%E3%83%AB%E3%82%BA">
+            もっと詳しく！
+        </a>
+            
+            
+            
+        
+        
+        
+    </body>
+</html>
