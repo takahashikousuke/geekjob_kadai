@@ -1,0 +1,62 @@
+<%-- 
+    Document   : QueryString
+    Created on : 2018/03/09, 11:44:37
+    Author     : guest1Day
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <%
+        request.setCharacterEncoding("UTF-8");
+        String total = request.getParameter("total");
+        String count = request.getParameter("count");
+        String type = request.getParameter("type");
+        
+        int typeData = Integer.parseInt(type);
+        
+        
+        switch(typeData){
+            case 1:
+                out.print("商品種別…雑貨"+"<br>");
+            break;
+            
+            case 2:
+                out.print("商品種別…生鮮食品"+"<br>");
+            break;
+            
+            case 3:
+                out.print("商品種別…その他"+"<br>");
+            break;    
+        }
+        
+        int countData = Integer.parseInt(count);
+        int totalData = Integer.parseInt(total);
+        
+        int tannka = totalData/countData;
+        
+        out.print("単価は"+tannka+"円です。"+"<br>");
+        
+        double point = 0; 
+        
+        if(totalData <= 2999){
+            point = 0;
+        }else if(totalData >= 3000 && totalData <= 4999){
+            point =(int)totalData*0.04;
+        }else if(totalData>=5000){
+            point =(int)totalData*0.05;
+        }
+        
+        
+        
+        out.print((int)point+"ポイント獲得！");
+
+        %>
+            
+    </body>
+</html>
