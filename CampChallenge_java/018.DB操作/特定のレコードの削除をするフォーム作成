@@ -1,0 +1,21 @@
+<%-- 
+    Document   : Sakuzyo
+    Created on : 2018/03/16, 10:48:33
+    Author     : guest1Day
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <form action = "./Sakuzyo" method = "post">
+            
+            ID<input type = "number" name = "profilesID"> <br>
+            <input type = "submit" name = "btn">
+        </form>    
+    </body>
+</html>
