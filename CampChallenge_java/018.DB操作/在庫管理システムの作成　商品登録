@@ -1,0 +1,26 @@
+<%-- 
+    Document   : product
+    Created on : 2018/03/16, 13:56:12
+    Author     : guest1Day
+--%>
+<%@page import="newpackage.login"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <form action = "./product" method = "post">
+
+            No.  <input type = "number" name = "number"> <br>
+            商品名　　<input type = "text" name = "productName"><br>
+            値段      <input type = "number" name = "price"><br>
+            個数      <input type = "number" name = "how"><br>           
+            最終更新日<input type = "text" name = "date"><br>
+            <input type = "submit" name = "btn"><br>
+             <a href="./login.jsp">ログアウト</a>
+        </form>
+    </body>
+</html>
